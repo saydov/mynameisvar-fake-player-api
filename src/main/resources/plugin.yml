@@ -1,0 +1,4 @@
+name: NpcAPI
+version: '1.0'
+main: dev.var.api.NpcAPIPlugin
+author: var
