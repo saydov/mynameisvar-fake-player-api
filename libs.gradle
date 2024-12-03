@@ -1,0 +1,11 @@
+ext {
+    libs = [
+            "bukkit"      : "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT",
+            "protocol-lib": "com.comphenix.protocol:ProtocolLib:5.1.0",
+            "fastutil"    : "it.unimi.dsi:fastutil:8.5.6",
+            "slf4j"       : "org.slf4j:slf4j-api:1.7.32",
+            "jetbrains"   : "org.jetbrains:annotations:23.0.0",
+            "lombok"      : "org.projectlombok:lombok:1.18.36"
+    ]
+
+}

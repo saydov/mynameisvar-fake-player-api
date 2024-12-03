@@ -1,4 +1,8 @@
-name: NpcAPI
-version: '1.0'
-main: dev.var.api.NpcAPIPlugin
-author: var
+main: "dev.var.entity.plugin.FakeEntityApiPlugin"
+name: "FakePlayerApi"
+
+version: "${version}"
+author: "var & saydov"
+description: "A simple API for creating Fake Players in Minecraft."
+website: "https://github.com/mynameisvar/npc-api/"
+depend: [ "ProtocolLib" ]
