@@ -7,6 +7,7 @@ import dev.var.entity.api.skin.SimpleFakePlayerSkinData;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@SuppressWarnings("unused")
 public final class FakeEntityApiPlugin extends JavaPlugin {
 
     private Location testFakePlayerLocation;
@@ -21,7 +22,7 @@ public final class FakeEntityApiPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        fakePlayerApi = FakePlayerApiCreator.fastSimpleApi(this);
+        fakePlayerApi = FakePlayerApiCreator.apiWithFastHashSet(this);
         fakePlayerApi.init();
 
         // todo loading fake players from config

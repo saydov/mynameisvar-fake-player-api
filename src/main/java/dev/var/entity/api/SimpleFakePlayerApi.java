@@ -4,6 +4,7 @@ import dev.var.entity.api.skin.FakePlayerSkinData;
 import lombok.*;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
@@ -14,6 +15,12 @@ import java.util.Set;
 @ToString
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public final class SimpleFakePlayerApi implements FakePlayerApi {
+
+    @Contract(value = "_, _ -> new", pure = true)
+    public static @NotNull FakePlayerApi create(@NotNull JavaPlugin javaPlugin,
+                                                @NotNull Set<FakePlayerEntity> fakePlayerEntities) {
+        return new SimpleFakePlayerApi(javaPlugin, fakePlayerEntities);
+    }
 
     private final JavaPlugin javaPlugin;
     private final Set<FakePlayerEntity> fakePlayerEntities;
@@ -64,17 +71,6 @@ public final class SimpleFakePlayerApi implements FakePlayerApi {
     public void destroy() {
         fakePlayerEntities.forEach(fakePlayerEntity ->
                 fakePlayerEntity.getViewers().forEach(fakePlayerEntity::remove));
-    }
-
-    @Builder(builderMethodName = "fabric", toBuilder = true)
-    public static class Fabric {
-
-        private final JavaPlugin javaPlugin;
-        private final Set<FakePlayerEntity> fakePlayerEntities;
-
-        public @NotNull SimpleFakePlayerApi createApi() {
-            return new SimpleFakePlayerApi(javaPlugin, fakePlayerEntities);
-        }
     }
 
 }

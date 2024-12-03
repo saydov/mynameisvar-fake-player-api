@@ -10,20 +10,12 @@ import java.util.HashSet;
 @UtilityClass
 public class FakePlayerApiCreator {
 
-    public @NotNull FakePlayerApi fastSimpleApi(final @NotNull JavaPlugin javaPlugin) {
-        return SimpleFakePlayerApi.Fabric.fabric()
-                .javaPlugin(javaPlugin)
-                .fakePlayerEntities(new ObjectOpenHashSet<>())
-                .build()
-                .createApi();
+    public @NotNull FakePlayerApi apiWithFastHashSet(final @NotNull JavaPlugin javaPlugin) {
+        return SimpleFakePlayerApi.create(javaPlugin, new ObjectOpenHashSet<>());
     }
 
-    public @NotNull FakePlayerApi javaSimpleApi(final @NotNull JavaPlugin javaPlugin) {
-        return SimpleFakePlayerApi.Fabric.fabric()
-                .javaPlugin(javaPlugin)
-                .fakePlayerEntities(new HashSet<>())
-                .build()
-                .createApi();
+    public @NotNull FakePlayerApi apiWithHashSet(final @NotNull JavaPlugin javaPlugin) {
+        return SimpleFakePlayerApi.create(javaPlugin, new HashSet<>());
     }
 
 }
